@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row py-5">
+                <div class="col-md-4">
+                    <div class="overview-card-item confirmed">
+                        <h6>Confirmed</h6>
+                        <h3>{{latest.confirmed | number}}</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="overview-card-item deaths">
+                        <h6>Deaths</h6>
+                        <h3>{{latest.deaths | number}}</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="overview-card-item recovered">
+                        <h6>Recovered</h6>
+                        <h3>{{latest.recovered}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="content-main shadow">
+                <div class="row">
+                    <div class="col-md-4">
+                        <form action="">
+                            <div class="form-group search-form">
+                                <input class="form-control" placeholder="Enter Location">
+                            </div>
+                        </form>
+                        <div class="list-country overflow-auto">
+                            <ul class="list-group list-group-flush">
+                                <li *ngFor="let location of locations;let i = index" class="list-group-item border-0 d-flex justify-content-between align-items-center">
+                                    <strong class="badge badge-danger">{{location.latest.confirmed | number}}</strong> {{location.country}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng" mapTypeId="roadmap">
+                            <agm-circle *ngFor="let location of locations" [latitude]="formatNumber(location.coordinates.latitude)" [longitude]="formatNumber(location.coordinates.longitude)" [fillOpacity]="0.6" [fillColor]="fillcolor" [radius]="drawCircle(location.latest.confirmed)">
+                            </agm-circle>
+                        </agm-map>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img src="../../../assets/3586068.jpg" class="mb-3 img-fluid rounded">
+            <img src="../../../assets/3605324.jpg" class="img-fluid rounded">
+        </div>
+    </div>
+</div>

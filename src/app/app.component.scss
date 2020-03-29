@@ -1,0 +1,7 @@
+.wrapper{
+    display: flex;
+    .content{
+        width: calc(100% - 100px);
+        background-color:#FBFFFB ;
+    }
+}
