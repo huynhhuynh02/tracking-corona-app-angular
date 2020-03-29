@@ -1,0 +1,13 @@
+.card-item{
+    padding: 20px;
+    border-radius: 20px;
+    height: 100%;
+}
+.card-item.symptom{
+    transition: all 0.5s linear;
+    background: linear-gradient(#5D70AE,#7088B8);
+    color: #fff;
+    &:hover{
+        transform: translateY(-10px);
+    }
+}

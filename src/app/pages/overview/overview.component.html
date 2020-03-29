@@ -2,19 +2,19 @@
     <div class="row">
         <div class="col-md-9">
             <div class="row py-5">
-                <div class="col-md-4">
+                <div class="col-md-4 py-3">
                     <div class="overview-card-item confirmed">
                         <h6>Confirmed</h6>
                         <h3>{{latest.confirmed | number}}</h3>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 py-3">
                     <div class="overview-card-item deaths">
                         <h6>Deaths</h6>
                         <h3>{{latest.deaths | number}}</h3>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 py-3">
                     <div class="overview-card-item recovered">
                         <h6>Recovered</h6>
                         <h3>{{latest.recovered}}</h3>
@@ -26,12 +26,12 @@
                     <div class="col-md-4">
                         <form action="">
                             <div class="form-group search-form">
-                                <input class="form-control" placeholder="Enter Location">
+                                <input class="form-control" placeholder="Enter Location" [(ngModel)]="searchText" name="search">
                             </div>
                         </form>
                         <div class="list-country overflow-auto">
                             <ul class="list-group list-group-flush">
-                                <li *ngFor="let location of locations;let i = index" class="list-group-item border-0 d-flex justify-content-between align-items-center">
+                                <li *ngFor="let location of locations | filter:searchText" class="list-group-item border-0 d-flex justify-content-between align-items-center">
                                     <strong class="badge badge-danger">{{location.latest.confirmed | number}}</strong> {{location.country}}
                                 </li>
                             </ul>
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <img src="../../../assets/3586068.jpg" class="mb-3 img-fluid rounded">
+            <img src="../../../assets/images/img-tracking.png" class="mb-3 img-fluid rounded">
             <img src="../../../assets/3605324.jpg" class="img-fluid rounded">
         </div>
     </div>

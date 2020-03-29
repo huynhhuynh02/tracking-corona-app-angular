@@ -4,6 +4,7 @@ import { from } from 'rxjs';
 import { Latest } from 'src/app/models/latest.model';
 import { element } from 'protractor';
 
+
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -16,9 +17,12 @@ export class OverviewComponent implements OnInit {
   lat: number = 32.0704876;
   lng: number = 73.7125865;
   zoom: number = 3;
+  isload:boolean = false;
+  searchText;
   constructor(private apiService:ApiServiceCorona) { }
 
   ngOnInit(): void {
+    console.log(this.isload);
     this.getAllLocation();
     this.getLatest();
   }
@@ -32,7 +36,7 @@ export class OverviewComponent implements OnInit {
     return this.apiService.getAllLocation().subscribe(
       data=>{
         this.locations = data['locations'];
-        console.log(this.locations);
+        // console.log(this.locations);
       }
     )
   }
@@ -40,7 +44,8 @@ export class OverviewComponent implements OnInit {
     return this.apiService.getLatest().subscribe(
       data =>{
         this.latest = data['latest'];
-        console.log(this.latest);
+        // console.log(this.latest);
+        this.isload =true;
       }
     );
   }

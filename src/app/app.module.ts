@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule }   from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './pages/sidenav/sidenav.component';
@@ -25,8 +26,10 @@ import { from } from 'rxjs';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     FontAwesomeModule,
+    Ng2SearchPipeModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC-MN-KxAHbHAmhOdRgz1AILYo1qdkZ_Sw'
     })
