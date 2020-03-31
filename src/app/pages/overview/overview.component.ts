@@ -22,7 +22,7 @@ export class OverviewComponent implements OnInit {
   constructor(private apiService:ApiServiceCorona) { }
 
   ngOnInit(): void {
-    console.log(this.isload);
+    // console.log(this.isload);
     this.getAllLocation();
     this.getLatest();
   }
