@@ -12,7 +12,6 @@ import { JounralComponent } from './pages/jounral/jounral.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AgmCoreModule } from '@agm/core';
-import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,7 @@ import { from } from 'rxjs';
     Ng2SearchPipeModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC-MN-KxAHbHAmhOdRgz1AILYo1qdkZ_Sw'
-    })
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

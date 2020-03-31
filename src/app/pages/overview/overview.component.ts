@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceCorona } from 'src/app/services/api.service';
-import { from } from 'rxjs';
 import { Latest } from 'src/app/models/latest.model';
-import { element } from 'protractor';
-
 
 @Component({
   selector: 'app-overview',
@@ -18,11 +15,10 @@ export class OverviewComponent implements OnInit {
   lng: number = 73.7125865;
   zoom: number = 3;
   isload:boolean = false;
-  searchText:string;
+  searchText;
   constructor(private apiService:ApiServiceCorona) { }
 
   ngOnInit(): void {
-    // console.log(this.isload);
     this.getAllLocation();
     this.getLatest();
   }
@@ -36,7 +32,7 @@ export class OverviewComponent implements OnInit {
     return this.apiService.getAllLocation().subscribe(
       data=>{
         this.locations = data['locations'];
-        // console.log(this.locations);
+        console.log(this.locations);
       }
     )
   }
