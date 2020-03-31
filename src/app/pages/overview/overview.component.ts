@@ -18,7 +18,7 @@ export class OverviewComponent implements OnInit {
   lng: number = 73.7125865;
   zoom: number = 3;
   isload:boolean = false;
-  searchText;
+  searchText:string;
   constructor(private apiService:ApiServiceCorona) { }
 
   ngOnInit(): void {
